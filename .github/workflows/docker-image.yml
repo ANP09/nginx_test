@@ -48,7 +48,7 @@ jobs:
           echo $REPOSITORY_URI
 
           # Replace the build number and repository URI placeholders with the constants above
-          sed -e "s;%BUILD_NUMBER%;${IMAGE_TAG};g" -e "s;%REPOSITORY_URI%;${REPOSITORY_URI};g" taskdef.json.json > ${NAME}-${{ github.run_number }}.json
+          sed -e "s;%BUILD_NUMBER%;${IMAGE_TAG};g" -e "s;%REPOSITORY_URI%;${REPOSITORY_URI};g" taskdef.json > ${NAME}-${{ github.run_number }}.json
 
           # Register the task definition in the repository
           aws ecs register-task-definition --family ${FAMILY} --cli-input-json file://${{ github.workspace }}/${NAME}-${{ github.run_number }}.json --region ${REGION}
