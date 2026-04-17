@@ -8,7 +8,7 @@ on:
 env:
   AWS_REGION: us-east-2
   ECR_REPOSITORY: my-app-repo
-  ECS_CLUSTER: cluster-docs-service
+  ECS_CLUSTER: test
   TASKDEF_FILE: taskdef.json
 
 jobs:
